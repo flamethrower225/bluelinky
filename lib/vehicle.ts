@@ -109,7 +109,7 @@ export default class Vehicle extends EventEmitter {
   async start(config: StartConfig): Promise<HyundaiResponse|null> {
 
     const response = await this._request(endpoints.remoteAction, {
-      service: 'ignitionstart',
+      service: 'postRemoteFatcStart',
       ...config
     });
 
@@ -123,7 +123,7 @@ export default class Vehicle extends EventEmitter {
   async stop(): Promise<HyundaiResponse|null> {
 
     const response = await this._request(endpoints.remoteAction, {
-      service: 'ignitionstop'
+      service: 'postRemoteFatcStop'
     });
 
     return {
